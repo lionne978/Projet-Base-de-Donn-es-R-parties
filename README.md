@@ -15,8 +15,8 @@ Le Système Informatique de Gestion de l’Enseignement Supérieur et de la Rech
 ## **Travail Réalisé**
 
 ### **1. Modélisation**
-- **Schéma Entité-Association (EA)** : Défini pour représenter les relations entre étudiants, formations, filières, et zones.
-- **Modèle logique des données** : Création des relations et des attributs basés sur les besoins identifiés.
+- **Schéma Entité-Association (EA)** : Défini pour représenter les relations entre étudiants, formations, filières, et zones. (voir.pdf)
+- **Modèle logique des données** : Création des relations et des attributs basés sur les besoins identifiés.(voir.pdf)
 
 ### **2. Création de la Base de Données**
 - Tables SQL pour gérer les données globales.
@@ -31,7 +31,6 @@ Le Système Informatique de Gestion de l’Enseignement Supérieur et de la Rech
 
 ## **Fonctionnalités Clés**
 1. Gestion des inscriptions et préinscriptions.
-2. Génération des statistiques complexes pour le ministère (passants, redoublants, taux de réussite).
 3. Requêtes spécifiques, telles que :
    - Étudiants inscrits à la filière MIC de Saint-Louis en 2019/2020.
    - Filières avec plus de 1 000 préinscriptions en 2019/2020.
@@ -39,17 +38,12 @@ Le Système Informatique de Gestion de l’Enseignement Supérieur et de la Rech
 
 ## **Technologies Utilisées**
 - **Base de données** : SQL (tables, vues matérialisées, déclencheurs).
-- **Langage de développement** : (Préciser ici : Python, Java, etc.).
-- **Outils collaboratifs** : Google Meet, Blackboard Collaborate.
+- **Langage de développement** : ( Python,html.).
+- **Outils collaboratifs** : Google Meet, Google Drive.
 
 ## **Structure des Fichiers**
-- `Tables.sql` : Contient les scripts pour la création des tables et l'insertion des données.
+- `fichier.sql` : Contient les scripts pour la création des tables et l'insertion des données.
 - `synonymes.sql` : Requêtes pour la gestion des liens et des synonymes.
 - `declencheurs_materializedView.sql` : Scripts pour les déclencheurs et les vues matérialisées.
-- `Requete.sql` : Requêtes pour la gestion des données et les statistiques.
+- `Requete.sql` : Requêtes pour la gestion des données.
 - `Rapport.pdf` : Documentation avec captures d'écran des étapes de configuration et tests.
-
-## **Installation et Configuration**
-1. Importer les scripts SQL dans un système de gestion de bases de données compatible.
-2. Configurer les utilisateurs et les privilèges pour chaque zone.
-3. Exécuter les tests et les requêtes fournies pour valider l'installation.
