@@ -1,0 +1,40 @@
+<!-- req1.html -->
+{% extends 'base.html' %}
+
+{% block title %}Requête 3{% endblock %}
+
+{% block content %}
+    <h1>Liste des étudiants inscrits pour l’année académique en cours</h1>
+
+    {% if data %}
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <!-- Ajoutez ici les en-têtes du tableau, correspondant aux colonnes de vos données -->
+                    <th>ID</th>
+                    <th>INE</th>
+                    <th>NOM</th>
+                    <th>PRENOM</th>
+                    <th>AGE</th>
+                    <!-- ... Ajoutez d'autres en-têtes en fonction de vos données ... -->
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in data %}
+                    <tr>
+                        <!-- Ajoutez ici les données de chaque ligne -->
+                        <td>{{ row[0]}}</td>
+                        <td>{{ row[1] }}</td>
+                        <td>{{ row[2]  }}</td>
+                        <td>{{ row[3]  }}</td>
+                        <td>{{ row[4]  }}</td>
+                        <!-- ... Ajoutez d'autres colonnes en fonction de vos données ... -->
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>Aucune donnée disponible.</p>
+    {% endif %}
+
+{% endblock %}

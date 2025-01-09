@@ -1,0 +1,1 @@
+CREATE DATABASE LINK lien_sud CONNECT TO zonesud IDENTIFIED BY nord USING 'localhost:1521/XE';

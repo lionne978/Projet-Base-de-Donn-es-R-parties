@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+
+{% block title %}Connexion{% endblock %}
+
+{% block content %}
+<div class="container d-flex align-items-center justify-content-center" style="height: 100vh;">
+    <div class="card">
+        <div class="card-body">
+            <h2 class="card-title text-center">Connexion</h2>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="username">Nom d'utilisateur Oracle :</label>
+                    <input type="text" class="form-control"  id="username" name="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Mot de passe :</label>
+                    <input type="password" class="form-control"  id="password" name="password" required>
+                </div>
+                <div class="text-center mt-4">
+                    <button type="button" class="btn btn-primary" id="submitBtn">Se connecter</button>
+                </div>
+            </form>
+            <div id="errorMessage" class="mt-3 text-danger text-center" style="display: none;">Identifiants incorrects. Veuillez réessayer.</div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    document.getElementById("submitBtn").addEventListener("click", function() {
+        var username = document.getElementById("username").value;
+        var password = document.getElementById("password").value;
+
+        fetch('/login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded','Secret-Key': '15176c4e4366a4b13fff15e90a7923200e2f5a4d9cdb1955b98893130af07428'
+
+            },
+            body: 'username=' + encodeURIComponent(username) + '&password=' + encodeURIComponent(password)
+        })
+        .then(response => {
+            if (response.ok) {
+                return response.json();
+            } else {
+                throw new Error('Erreur réseau (' + response.status + ' ' + response.statusText + ')');
+            }
+        })
+        .then(data => {
+            if (data.success) {
+                window.location.href = data.redirect_url;
+            } else {
+                document.getElementById("errorMessage").innerText = data.error;
+                document.getElementById("errorMessage").style.display = "block";
+            }
+        })
+        .catch(error => {
+            console.error('Erreur:', error.message); // Gestion des erreurs réseau
+            document.getElementById("errorMessage").innerText = 'Une erreur s\'est produite. Veuillez réessayer.';
+            document.getElementById("errorMessage").style.display = "block";
+        });
+    });
+</script>
+{% endblock %}

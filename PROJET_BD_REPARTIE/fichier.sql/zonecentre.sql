@@ -1,0 +1,1 @@
+CREATE DATABASE LINK lien_centre CONNECT TO zonecentre IDENTIFIED BY centre USING 'localhost:1521/XE';

@@ -1,0 +1,34 @@
+<!-- req4.html -->
+{% extends 'base.html' %}
+
+{% block title %}Requête 4{% endblock %}
+
+{% block content %}
+    <h1>Liste des étudiants par zone inscrit eu une préinscription pour 2020/2021</h1>
+
+    {% if data %}
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <!-- Ajoutez ici les en-têtes du tableau, correspondant aux colonnes de vos données -->
+                    <th>Colonne1</th>
+                    <th>Colonne2</th>
+                    <!-- ... Ajoutez d'autres en-têtes en fonction de vos données ... -->
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in data %}
+                    <tr>
+                        <!-- Ajoutez ici les données de chaque ligne -->
+                        <td>{{ row.colonne1 }}</td>
+                        <td>{{ row.colonne2 }}</td>
+                        <!-- ... Ajoutez d'autres colonnes en fonction de vos données ... -->
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>Aucune donnée disponible.</p>
+    {% endif %}
+
+{% endblock %}

@@ -1,0 +1,38 @@
+<!-- req1.html -->
+{% extends 'base.html' %}
+
+{% block title %}Requête 1{% endblock %}
+
+{% block content %}
+    <div class="container mt-4">
+        <h1>La liste des étudiants ayant une inscription pour la filière MIC qui sont de l’ENO de Saint-Louis pour l’année académique 2019/2020</h1>
+        <p>RESULTAT</p>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Nom</th>
+                    <th>Prénom</th>
+                    <th>Matière</th>
+                    <th>Ville</th>
+                    <th>Date</th>
+                    <th>Statut</th>
+                    <th>Zone</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in data %}
+                    <tr>
+                        <td>{{ row[0] }}</td>
+                        <td>{{ row[1] }}</td>
+                        <td>{{ row[2] }}</td>
+                        <td>{{ row[3] }}</td>
+                        <td>{{ row[4] }}</td>
+                        <td>{{ row[5] }}</td>
+                        <td>{{ row[6] }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

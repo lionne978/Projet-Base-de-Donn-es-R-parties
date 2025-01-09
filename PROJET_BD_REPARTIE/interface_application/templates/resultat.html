@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}Résultats de la Requête{% endblock %}
+
+{% block content %}
+    <h1>Résultats de la Requête</h1>
+    <p>Requête exécutée : <code>{{ query }}</code></p>
+    <table class="table table-bordered">
+        <thead>
+            <!-- Ajoutez les en-têtes de colonnes si vous connaissez la structure des résultats -->
+        </thead>
+        <tbody>
+            {% for row in data %}
+                <tr>
+                    {% for item in row %}
+                        <td>{{ item }}</td>
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

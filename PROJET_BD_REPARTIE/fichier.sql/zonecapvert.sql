@@ -1,0 +1,1 @@
+CREATE DATABASE LINK lien_capvert CONNECT TO zonecapvert IDENTIFIED BY nord USING 'localhost:1521/XE';

@@ -1,0 +1,28 @@
+<!-- req2.html -->
+{% extends 'base.html' %}
+
+{% block title %}Requête {% endblock %}
+
+{% block content %}
+    <h1>Liste des filières ayant plus de 1000 préinscriptions en 2019/2020</h1>
+    <p>RESULTAT</p>
+
+    <div class="container">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">NOM_FILIERE</th>
+                    <th scope="col">NOMBRE_PREINSCRIPTION</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in data %}
+                    <tr>
+                        <td>{{ row[0] }}</td>
+                        <td>{{ row[1] }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

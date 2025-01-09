@@ -1,0 +1,120 @@
+{% extends "base.html" %}
+
+{% block content %}
+    {% include "header.html" %}
+<div class="container mt-4">
+    <h2>Créer un nouvel étudiant</h2>
+    <form method="POST" action="{{ url_for('ajouter_etudiant') }}"> 
+        <div class="form-group">
+            <label for="ID">ID:</label>
+            <input type="text" class="form-control" id="ID" name="ID" required>
+        </div>
+        <div class="form-group">
+            <label for="INE">INE :</label>
+            <input type="text" class="form-control" id="INE" name="INE" required>
+        </div>
+        <div class="form-group">
+            <label for="nom">Nom :</label>
+            <input type="text" class="form-control" id="nom" name="nom" required>
+        </div>
+        <div class="form-group">
+            <label for="prenom">Prénom :</label>
+            <input type="text" class="form-control" id="prenom" name="prenom" required>
+        </div>
+        <div class="form-group">
+            <label for="age">Age :</label>
+            <input type="number" class="form-control" id="age" name="age" required>
+        </div>
+        <div class="form-group">
+            <label for="adresse">Adresse :</label>
+            <input type="text" class="form-control" id="adresse" name="adresse" required>
+        </div>
+        <div class="form-group">
+            <label for="email">E-mail :</label>
+            <input type="email" class="form-control" id="email" name="email" required>
+        </div>
+        <!-- Ajoutez d'autres champs pour les informations restantes de la table 'etudiants' -->
+
+        <!-- Champs pour les clés étrangères -->
+        <div class="form-group">
+            <label for="id_preinscription">Préinscription :</label>
+            <select class="form-control" id="id_preinscription" name="id_preinscription">
+                <!-- Code pour récupérer les options depuis la base de données Oracle -->
+                <option value=""></option>
+                {% for preinscription in preinscriptions %}
+                    <option value="{{ preinscription[0]}}">{{ preinscription[1]}}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="id_niveau">Niveau :</label>
+            <select class="form-control" id="id_niveau" name="id_niveau">
+                <!-- Code pour récupérer les options depuis la base de données Oracle -->
+                <option value=""></option>
+                {% for niveau in niveaux %}
+                    <option value="{{ niveau[0] }}">{{ niveau[1] }}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="id_filliere">Fillière :</label>
+            <select class="form-control" id="id_filliere" name="id_filliere">
+                <!-- Code pour récupérer les options depuis la base de données Oracle -->
+                <option value=""></option>
+                {% for filliere in fillieres %}
+                    <option value="{{ filliere[0] }}">{{ filliere[1] }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        
+        <div class="form-group">
+            <label for="id_eno">ENO :</label>
+            <select class="form-control" id="id_eno" name="id_eno">
+                <!-- Code pour récupérer les options depuis la base de données Oracle -->
+                <option value=""></option>
+                {% for eno in enos %}
+                    <option value="{{ eno[0] }}">{{ eno[1] }}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="id_inscription">Inscription :</label>
+            <select class="form-control" id="id_inscription" name="id_inscription">
+                <!-- Code pour récupérer les options depuis la base de données Oracle -->
+                <option value=""></option>
+                {% for inscription in inscriptions %}
+                    <option value="{{ inscription[0]}}">{{ inscription[1] }}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="validation">Validation :</label>
+            <select class="form-control" id="validation" name="validation">
+                <!-- Code pour récupérer les options depuis la base de données Oracle -->
+                <option value=""></option>
+                <option value="Succes">Succes</option>
+                <option value="Echec">Echec</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="mention">Mention :</label>
+            <select class="form-control" id="mention" name="mention">
+                <!-- Code pour récupérer les options depuis la base de données Oracle -->
+                <option value=""></option>
+                <option value="Insuffisant">Insuffisant</option>
+                <option value="Passable">Passable</option>
+                <option value="Assez-Bien">Assez Bien</option>
+                <option value="Bien">Bien</option>
+                <option value="très-Bien">très Bien</option>
+            </select>
+        </div>
+        <!-- Ajoutez des champs select similaires pour les autres clés étrangères -->
+
+        <button type="submit" class="btn btn-primary">Enregistrer Etudiant</button>
+    </form>
+</div>
+{% endblock %}
